@@ -23,5 +23,6 @@
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/generated-sources/jaxrs/com/warehouse/api/beans/Warehouse.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/main/java/com/fulfilment/application/monolith/warehouses/domain/ports/CreateWarehouseOperation.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/main/java/com/fulfilment/application/monolith/warehouses/adapters/database/DbWarehouse.java
+/Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/main/java/com/fulfilment/application/monolith/common/RestExceptionMapper.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/main/java/com/fulfilment/application/monolith/warehouses/adapters/database/WarehouseRepository.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/main/java/com/fulfilment/application/monolith/products/ProductRepository.java

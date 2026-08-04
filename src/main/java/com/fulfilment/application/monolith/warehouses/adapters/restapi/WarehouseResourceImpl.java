@@ -15,9 +15,12 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.WebApplicationException;
 import java.math.BigInteger;
 import java.util.List;
+import org.jboss.logging.Logger;
 
 @RequestScoped
 public class WarehouseResourceImpl implements WarehouseResource {
+
+  private static final Logger LOGGER = Logger.getLogger(WarehouseResourceImpl.class.getName());
 
   @Inject private WarehouseRepository warehouseRepository;
   @Inject private CreateWarehouseOperation createWarehouseOperation;
@@ -42,10 +45,13 @@ public class WarehouseResourceImpl implements WarehouseResource {
     try {
       // Create warehouse through use case (includes validations)
       createWarehouseOperation.create(domainWarehouse);
-      
+      LOGGER.infof("Created warehouse businessUnitCode=%s", domainWarehouse.businessUnitCode);
+
       // Return the created warehouse
       return toWarehouseResponse(domainWarehouse);
     } catch (IllegalArgumentException e) {
+      LOGGER.debugf("Rejected warehouse creation for businessUnitCode=%s: %s",
+          domainWarehouse.businessUnitCode, e.getMessage());
       throw new WebApplicationException(e.getMessage(), 400);
     }
   }
@@ -75,7 +81,9 @@ public class WarehouseResourceImpl implements WarehouseResource {
     try {
       // Archive warehouse through use case (includes validations)
       archiveWarehouseOperation.archive(domainWarehouse);
+      LOGGER.infof("Archived warehouse businessUnitCode=%s", id);
     } catch (IllegalArgumentException e) {
+      LOGGER.debugf("Rejected archive for businessUnitCode=%s: %s", id, e.getMessage());
       throw new WebApplicationException(e.getMessage(), 400);
     }
   }
@@ -94,11 +102,13 @@ public class WarehouseResourceImpl implements WarehouseResource {
     try {
       // Replace warehouse through use case (includes validations)
       replaceWarehouseOperation.replace(domainWarehouse);
+      LOGGER.infof("Replaced warehouse businessUnitCode=%s", businessUnitCode);
 
       // Return the updated warehouse
       var updated = warehouseRepository.findByBusinessUnitCode(businessUnitCode);
       return toWarehouseResponse(updated);
     } catch (IllegalArgumentException e) {
+      LOGGER.debugf("Rejected replace for businessUnitCode=%s: %s", businessUnitCode, e.getMessage());
       throw new WebApplicationException(e.getMessage(), 400);
     }
   }

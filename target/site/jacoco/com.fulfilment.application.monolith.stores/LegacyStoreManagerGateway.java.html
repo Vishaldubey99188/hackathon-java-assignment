@@ -3,50 +3,53 @@
 import jakarta.enterprise.context.ApplicationScoped;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import org.jboss.logging.Logger;
 
 @ApplicationScoped
-<span class="fc" id="L8">public class LegacyStoreManagerGateway {</span>
+<span class="fc" id="L9">public class LegacyStoreManagerGateway {</span>
+
+<span class="fc" id="L11">  private static final Logger LOGGER = Logger.getLogger(LegacyStoreManagerGateway.class.getName());</span>
 
   public void createStoreOnLegacySystem(Store store) {
     // just to emulate as this would send this to a legacy system, let's write a temp file with the
-<span class="nc" id="L12">    writeToFile(store);</span>
-<span class="nc" id="L13">  }</span>
+<span class="fc" id="L15">    writeToFile(store);</span>
+<span class="fc" id="L16">  }</span>
 
   public void updateStoreOnLegacySystem(Store store) {
     // just to emulate as this would send this to a legacy system, let's write a temp file with the
-<span class="nc" id="L17">    writeToFile(store);</span>
-<span class="nc" id="L18">  }</span>
+<span class="fc" id="L20">    writeToFile(store);</span>
+<span class="fc" id="L21">  }</span>
 
   private void writeToFile(Store store) {
     try {
       // Step 1: Create a temporary file
       Path tempFile;
 
-<span class="nc" id="L25">      tempFile = Files.createTempFile(store.name, &quot;.txt&quot;);</span>
+<span class="fc" id="L28">      tempFile = Files.createTempFile(store.name, &quot;.txt&quot;);</span>
 
-<span class="nc" id="L27">      System.out.println(&quot;Temporary file created at: &quot; + tempFile.toString());</span>
+<span class="fc" id="L30">      LOGGER.debugf(&quot;Temporary file created at: %s&quot;, tempFile);</span>
 
       // Step 2: Write data to the temporary file
-<span class="nc" id="L30">      String content =</span>
+<span class="fc" id="L33">      String content =</span>
           &quot;Store created. [ name =&quot;
               + store.name
               + &quot; ] [ items on stock =&quot;
               + store.quantityProductsInStock
               + &quot;]&quot;;
-<span class="nc" id="L36">      Files.write(tempFile, content.getBytes());</span>
-<span class="nc" id="L37">      System.out.println(&quot;Data written to temporary file.&quot;);</span>
+<span class="fc" id="L39">      Files.write(tempFile, content.getBytes());</span>
+<span class="fc" id="L40">      LOGGER.debug(&quot;Data written to temporary file.&quot;);</span>
 
       // Step 3: Optionally, read the data back to verify
-<span class="nc" id="L40">      String readContent = new String(Files.readAllBytes(tempFile));</span>
-<span class="nc" id="L41">      System.out.println(&quot;Data read from temporary file: &quot; + readContent);</span>
+<span class="fc" id="L43">      String readContent = new String(Files.readAllBytes(tempFile));</span>
+<span class="fc" id="L44">      LOGGER.debugf(&quot;Data read from temporary file: %s&quot;, readContent);</span>
 
       // Step 4: Delete the temporary file when done
-<span class="nc" id="L44">      Files.delete(tempFile);</span>
-<span class="nc" id="L45">      System.out.println(&quot;Temporary file deleted.&quot;);</span>
+<span class="fc" id="L47">      Files.delete(tempFile);</span>
+<span class="fc" id="L48">      LOGGER.debug(&quot;Temporary file deleted.&quot;);</span>
 
-<span class="nc" id="L47">    } catch (Exception e) {</span>
-<span class="nc" id="L48">      e.printStackTrace();</span>
-<span class="nc" id="L49">    }</span>
-<span class="nc" id="L50">  }</span>
+<span class="nc" id="L50">    } catch (Exception e) {</span>
+<span class="nc" id="L51">      LOGGER.errorf(e, &quot;Failed to sync store id=%d to legacy system&quot;, store.id);</span>
+<span class="fc" id="L52">    }</span>
+<span class="fc" id="L53">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

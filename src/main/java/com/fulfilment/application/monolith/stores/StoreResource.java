@@ -1,7 +1,5 @@
 package com.fulfilment.application.monolith.stores;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Event;
@@ -17,8 +15,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.ext.ExceptionMapper;
-import jakarta.ws.rs.ext.Provider;
 import java.util.List;
 import org.jboss.logging.Logger;
 
@@ -60,6 +56,7 @@ public class StoreResource {
 
     store.persist();
     storeCreatedEvent.fire(new StoreCreatedEvent(store));
+    LOGGER.infof("Created store id=%d name=%s", store.id, store.name);
 
     return Response.ok(store).status(201).build();
   }
@@ -82,6 +79,7 @@ public class StoreResource {
     entity.quantityProductsInStock = updatedStore.quantityProductsInStock;
 
     storeUpdatedEvent.fire(new StoreUpdatedEvent(entity));
+    LOGGER.infof("Updated store id=%d", id);
 
     return entity;
   }
@@ -109,6 +107,7 @@ public class StoreResource {
     }
 
     storeUpdatedEvent.fire(new StoreUpdatedEvent(entity));
+    LOGGER.infof("Patched store id=%d", id);
 
     return entity;
   }
@@ -122,32 +121,7 @@ public class StoreResource {
       throw new WebApplicationException("Store with id of " + id + " does not exist.", 404);
     }
     entity.delete();
+    LOGGER.infof("Deleted store id=%d", id);
     return Response.status(204).build();
-  }
-
-  @Provider
-  public static class ErrorMapper implements ExceptionMapper<Exception> {
-
-    @Inject ObjectMapper objectMapper;
-
-    @Override
-    public Response toResponse(Exception exception) {
-      LOGGER.error("Failed to handle request", exception);
-
-      int code = 500;
-      if (exception instanceof WebApplicationException) {
-        code = ((WebApplicationException) exception).getResponse().getStatus();
-      }
-
-      ObjectNode exceptionJson = objectMapper.createObjectNode();
-      exceptionJson.put("exceptionType", exception.getClass().getName());
-      exceptionJson.put("code", code);
-
-      if (exception.getMessage() != null) {
-        exceptionJson.put("error", exception.getMessage());
-      }
-
-      return Response.status(code).entity(exceptionJson).build();
-    }
   }
 }
