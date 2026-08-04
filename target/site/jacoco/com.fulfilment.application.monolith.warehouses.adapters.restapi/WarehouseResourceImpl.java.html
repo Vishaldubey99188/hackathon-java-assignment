@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WarehouseResourceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java-code-assignment</a> &gt; <a href="index.source.html" class="el_package">com.fulfilment.application.monolith.warehouses.adapters.restapi</a> &gt; <span class="el_source">WarehouseResourceImpl.java</span></div><h1>WarehouseResourceImpl.java</h1><pre class="source lang-java linenums">package com.fulfilment.application.monolith.warehouses.adapters.restapi;
+
+import com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository;
+import com.fulfilment.application.monolith.warehouses.domain.models.WarehouseSearchPage;
+import com.fulfilment.application.monolith.warehouses.domain.ports.ArchiveWarehouseOperation;
+import com.fulfilment.application.monolith.warehouses.domain.ports.CreateWarehouseOperation;
+import com.fulfilment.application.monolith.warehouses.domain.ports.ReplaceWarehouseOperation;
+import com.warehouse.api.WarehouseResource;
+import com.warehouse.api.beans.Warehouse;
+import com.warehouse.api.beans.WarehouseSearchResult;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.NotNull;
+import jakarta.ws.rs.WebApplicationException;
+import java.math.BigInteger;
+import java.util.List;
+
+@RequestScoped
+<span class="fc" id="L20">public class WarehouseResourceImpl implements WarehouseResource {</span>
+
+  @Inject private WarehouseRepository warehouseRepository;
+  @Inject private CreateWarehouseOperation createWarehouseOperation;
+  @Inject private ArchiveWarehouseOperation archiveWarehouseOperation;
+  @Inject private ReplaceWarehouseOperation replaceWarehouseOperation;
+
+  @Override
+  public List&lt;Warehouse&gt; listAllWarehousesUnits() {
+<span class="nc" id="L29">    return warehouseRepository.getAll().stream().map(this::toWarehouseResponse).toList();</span>
+  }
+
+  @Override
+  @Transactional
+  public Warehouse createANewWarehouseUnit(@NotNull Warehouse data) {
+    // Convert API model to domain model
+<span class="nc" id="L36">    var domainWarehouse = new com.fulfilment.application.monolith.warehouses.domain.models.Warehouse();</span>
+<span class="nc" id="L37">    domainWarehouse.businessUnitCode = data.getBusinessUnitCode();</span>
+<span class="nc" id="L38">    domainWarehouse.location = data.getLocation();</span>
+<span class="nc" id="L39">    domainWarehouse.capacity = data.getCapacity();</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">    domainWarehouse.stock = data.getStock() != null ? data.getStock() : 0;</span>
+
+    try {
+      // Create warehouse through use case (includes validations)
+<span class="nc" id="L44">      createWarehouseOperation.create(domainWarehouse);</span>
+      
+      // Return the created warehouse
+<span class="nc" id="L47">      return toWarehouseResponse(domainWarehouse);</span>
+<span class="nc" id="L48">    } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L49">      throw new WebApplicationException(e.getMessage(), 400);</span>
+    }
+  }
+
+  @Override
+  public Warehouse getAWarehouseUnitByID(String id) {
+    // Find warehouse by business unit code
+<span class="nc" id="L56">    var domainWarehouse = warehouseRepository.findByBusinessUnitCode(id);</span>
+    
+<span class="nc bnc" id="L58" title="All 2 branches missed.">    if (domainWarehouse == null) {</span>
+<span class="nc" id="L59">      throw new WebApplicationException(&quot;Warehouse with business unit code '&quot; + id + &quot;' not found&quot;, 404);</span>
+    }
+    
+<span class="nc" id="L62">    return toWarehouseResponse(domainWarehouse);</span>
+  }
+
+  @Override
+  @Transactional
+  public void archiveAWarehouseUnitByID(String id) {
+    // Find warehouse by business unit code
+<span class="nc" id="L69">    var domainWarehouse = warehouseRepository.findByBusinessUnitCode(id);</span>
+
+<span class="nc bnc" id="L71" title="All 2 branches missed.">    if (domainWarehouse == null) {</span>
+<span class="nc" id="L72">      throw new WebApplicationException(&quot;Warehouse with business unit code '&quot; + id + &quot;' not found&quot;, 404);</span>
+    }
+
+    try {
+      // Archive warehouse through use case (includes validations)
+<span class="nc" id="L77">      archiveWarehouseOperation.archive(domainWarehouse);</span>
+<span class="nc" id="L78">    } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L79">      throw new WebApplicationException(e.getMessage(), 400);</span>
+<span class="nc" id="L80">    }</span>
+<span class="nc" id="L81">  }</span>
+
+  @Override
+  @Transactional
+  public Warehouse replaceTheCurrentActiveWarehouse(
+      String businessUnitCode, @NotNull Warehouse data) {
+    // Convert API model to domain model
+<span class="nc" id="L88">    var domainWarehouse = new com.fulfilment.application.monolith.warehouses.domain.models.Warehouse();</span>
+<span class="nc" id="L89">    domainWarehouse.businessUnitCode = businessUnitCode; // Use businessUnitCode from path</span>
+<span class="nc" id="L90">    domainWarehouse.location = data.getLocation();</span>
+<span class="nc" id="L91">    domainWarehouse.capacity = data.getCapacity();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">    domainWarehouse.stock = data.getStock() != null ? data.getStock() : 0;</span>
+
+    try {
+      // Replace warehouse through use case (includes validations)
+<span class="nc" id="L96">      replaceWarehouseOperation.replace(domainWarehouse);</span>
+
+      // Return the updated warehouse
+<span class="nc" id="L99">      var updated = warehouseRepository.findByBusinessUnitCode(businessUnitCode);</span>
+<span class="nc" id="L100">      return toWarehouseResponse(updated);</span>
+<span class="nc" id="L101">    } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L102">      throw new WebApplicationException(e.getMessage(), 400);</span>
+    }
+  }
+
+  @Override
+  public WarehouseSearchResult searchWarehouseUnits(
+      String location,
+      BigInteger minCapacity,
+      BigInteger maxCapacity,
+      String sortBy,
+      String sortOrder,
+      BigInteger page,
+      BigInteger pageSize) {
+
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">    int resolvedPage = page != null ? page.intValue() : 0;</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">    if (resolvedPage &lt; 0) {</span>
+<span class="nc" id="L118">      throw new WebApplicationException(&quot;page must not be negative&quot;, 400);</span>
+    }
+
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">    int resolvedPageSize = pageSize != null ? pageSize.intValue() : 10;</span>
+<span class="pc bpc" id="L122" title="1 of 4 branches missed.">    if (resolvedPageSize &lt; 1 || resolvedPageSize &gt; 100) {</span>
+<span class="fc" id="L123">      throw new WebApplicationException(&quot;pageSize must be between 1 and 100&quot;, 400);</span>
+    }
+
+<span class="fc" id="L126">    WarehouseSearchPage result =</span>
+<span class="fc" id="L127">        warehouseRepository.search(</span>
+            location,
+<span class="fc bfc" id="L129" title="All 2 branches covered.">            minCapacity != null ? minCapacity.intValue() : null,</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">            maxCapacity != null ? maxCapacity.intValue() : null,</span>
+            sortBy,
+            sortOrder,
+            resolvedPage,
+            resolvedPageSize);
+
+<span class="fc" id="L136">    var response = new WarehouseSearchResult();</span>
+<span class="fc" id="L137">    response.setItems(result.items().stream().map(this::toWarehouseResponse).toList());</span>
+<span class="fc" id="L138">    response.setPage(result.page());</span>
+<span class="fc" id="L139">    response.setPageSize(result.pageSize());</span>
+<span class="fc" id="L140">    response.setTotalElements((int) result.totalElements());</span>
+<span class="fc" id="L141">    return response;</span>
+  }
+
+  private Warehouse toWarehouseResponse(
+      com.fulfilment.application.monolith.warehouses.domain.models.Warehouse warehouse) {
+<span class="fc" id="L146">    var response = new Warehouse();</span>
+<span class="fc" id="L147">    response.setBusinessUnitCode(warehouse.businessUnitCode);</span>
+<span class="fc" id="L148">    response.setLocation(warehouse.location);</span>
+<span class="fc" id="L149">    response.setCapacity(warehouse.capacity);</span>
+<span class="fc" id="L150">    response.setStock(warehouse.stock);</span>
+
+<span class="fc" id="L152">    return response;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
