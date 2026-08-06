@@ -80,6 +80,12 @@ The codebase contains complete reference implementations for Archive and Replace
 - All explicitly targeted integration tests also pass
 - No flaky tests — results are consistent across multiple runs
 
+> ✅ **Done.** 89 tests pass consistently (`./mvnw clean test` for the default suite, plus
+> `WarehouseConcurrencyIT` and `WarehouseTestcontainersIT` via
+> `./mvnw test -Dtest=WarehouseConcurrencyIT,WarehouseTestcontainersIT`), verified across repeated
+> runs and again independently in CI (`.github/workflows/ci.yml`). Root-cause details and fixes for
+> every bug found are in [TESTING.md](TESTING.md).
+
 ---
 
 ### Task 3: Answer Discussion Questions
@@ -97,6 +103,8 @@ What are the pros and cons of each approach? Which would you choose and why?
 Given time and resource constraints, how would you prioritize tests for this project?
 
 Which types of tests (unit, integration, parameterized, concurrency) would you focus on, and how would you ensure effective coverage over time?
+
+> ✅ **Done.** Both answered in [QUESTIONS.md](QUESTIONS.md).
 
 ---
 
@@ -126,6 +134,14 @@ GET /warehouse/search
 3. Multiple filters use AND logic
 4. Add integration test(s)
 
+> ✅ **Done.** Endpoint defined in
+> [warehouse-openapi.yaml](src/main/resources/openapi/warehouse-openapi.yaml), implemented in
+> [WarehouseResourceImpl.searchWarehouseUnits()](src/main/java/com/fulfilment/application/monolith/warehouses/adapters/restapi/WarehouseResourceImpl.java)
+> and [WarehouseRepository.search()](src/main/java/com/fulfilment/application/monolith/warehouses/adapters/database/WarehouseRepository.java),
+> tested in
+> [WarehouseSearchEndpointTest.java](src/test/java/com/fulfilment/application/monolith/warehouses/adapters/restapi/WarehouseSearchEndpointTest.java)
+> (8 tests: filtering, AND-combination, sorting, pagination boundaries, the 400 on oversized page size).
+
 ---
 
 ## Going Beyond
@@ -141,23 +157,34 @@ There are no fixed requirements here. Think about what a production-grade versio
 
 There are no wrong answers — we're interested in how you think and what you prioritise.
 
+> ✅ **Done.** Full write-up in [GOING_BEYOND.md](GOING_BEYOND.md), answering all four prompts with
+> specific findings from this codebase. Also implemented, as part of that pass:
+> [WarehouseRepository.remove()](src/main/java/com/fulfilment/application/monolith/warehouses/adapters/database/WarehouseRepository.java)
+> (previously an `UnsupportedOperationException` stub), tested in
+> [WarehouseRepositoryTest.java](src/test/java/com/fulfilment/application/monolith/warehouses/adapters/database/WarehouseRepositoryTest.java);
+> and lower-bound capacity/stock validation (`capacity <= 0`, `stock < 0`), previously accepted
+> silently, in `CreateWarehouseUseCase` and `ReplaceWarehouseUseCase`.
+
 ---
 
 ## Deliverables
 
-1. **All tests passing**
+1. **✅ All tests passing**
    - Full test suite passes consistently
    - Any bugs found in the codebase are fixed
    - Integration tests (IT-suffix classes) also pass
 
-2. **Answers to questions** in [QUESTIONS.md](QUESTIONS.md)
+2. **✅ Answers to questions** in [QUESTIONS.md](QUESTIONS.md)
    - Thoughtful analysis of API specification approaches
    - Well-reasoned testing strategy
 
-3. **(Bonus) Search endpoint** with tests
+3. **✅ (Bonus) Search endpoint** with tests
    - Working implementation
    - Proper pagination and filtering
    - Integration tests
+
+See [TESTING.md](TESTING.md) for how to run and verify everything, and
+[GOING_BEYOND.md](GOING_BEYOND.md) for the open-ended findings.
 
 ---
 
