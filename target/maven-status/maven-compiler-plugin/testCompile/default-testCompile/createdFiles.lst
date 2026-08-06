@@ -14,6 +14,7 @@ com/fulfilment/application/monolith/warehouses/domain/WarehouseValidationTest.cl
 com/fulfilment/application/monolith/common/RestExceptionMapperTest.class
 com/fulfilment/application/monolith/warehouses/adapters/WarehouseTestcontainersIT.class
 com/fulfilment/application/monolith/stores/StoreEventObserverTest.class
+com/fulfilment/application/monolith/warehouses/adapters/database/WarehouseRepositoryTest.class
 com/fulfilment/application/monolith/warehouses/domain/usecases/CreateWarehouseUseCaseTest.class
 com/fulfilment/application/monolith/warehouses/adapters/restapi/WarehouseEndpointIT.class
 com/fulfilment/application/monolith/HealthCheckTest.class

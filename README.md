@@ -20,7 +20,7 @@ open http://localhost:8080/q/swagger-ui
 
 ## Before You Begin
 
-Read [BRIEFING.md](BRIEFING.md) for domain context, then [CODE_ASSIGNMENT.md](CODE_ASSIGNMENT.md) for your tasks. See [TESTING.md](TESTING.md) for the test suite layout, how to run each tier, and coverage reporting.
+Read [BRIEFING.md](BRIEFING.md) for domain context, then [CODE_ASSIGNMENT.md](CODE_ASSIGNMENT.md) for your tasks. See [TESTING.md](TESTING.md) for the test suite layout, how to run each tier, and coverage reporting, and [GOING_BEYOND.md](GOING_BEYOND.md) for the open-ended "Going Beyond" findings.
 
 ---
 

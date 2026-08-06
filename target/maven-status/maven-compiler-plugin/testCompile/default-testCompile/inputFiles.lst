@@ -9,6 +9,7 @@
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/test/java/com/fulfilment/application/monolith/warehouses/adapters/restapi/WarehouseEndpointIT.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/test/java/com/fulfilment/application/monolith/stores/StoreEndpointTest.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/test/java/com/fulfilment/application/monolith/warehouses/domain/usecases/CreateWarehouseUseCaseTest.java
+/Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/test/java/com/fulfilment/application/monolith/warehouses/adapters/database/WarehouseRepositoryTest.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/test/java/com/fulfilment/application/monolith/stores/StoreEventObserverTest.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/test/java/com/fulfilment/application/monolith/warehouses/adapters/WarehouseTestcontainersIT.java
 /Users/vishaldubey/Downloads/project/hackathon-java-assignment/src/test/java/com/fulfilment/application/monolith/warehouses/domain/usecases/ArchiveWarehouseUseCaseTest.java

@@ -19,7 +19,7 @@
     <property name="groovy.use.classvalue" value="false"/>
     <property name="mp.openapi.extensions.smallrye.defaultProduces" value="application/json"/>
     <property name="sun.boot.library.path" value="/Users/vishaldubey/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260805013349188_3.jar /Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire 2026-08-05T01-33-49_150-jvmRun1 surefire-20260805013349188_1tmp surefire_0-20260805013349188_2tmp"/>
+    <property name="sun.java.command" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260806131730897_3.jar /Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire 2026-08-06T13-17-30_861-jvmRun1 surefire-20260806131730897_1tmp surefire_0-20260806131730897_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/Users/vishaldubey/.m2/wrapper/dists/apache-maven-3.8.6-bin/67568434/apache-maven-3.8.6"/>
@@ -42,7 +42,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260805013349188_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260806131730897_3.jar"/>
     <property name="mp.openapi.extensions.smallrye.defaultStreamingConsumes" value="application/octet-stream"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
@@ -75,15 +75,15 @@
     <property name="vertx.disableTCCL" value="true"/>
     <property name="java.vm.version" value="20.0.2+9-78"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="51:b0:8b:d8:39:94:94:72"/>
+    <property name="io.netty.machineId" value="8f:66:df:5d:88:de:25:b7"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="64.0"/>
     <property name="jacoco-agent.destfile" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/jacoco-quarkus.exec"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="testClientErrorIsMappedWithOriginalStatusCode" classname="com.fulfilment.application.monolith.common.RestExceptionMapperTest" time="0.02"/>
+  <testcase name="testClientErrorIsMappedWithOriginalStatusCode" classname="com.fulfilment.application.monolith.common.RestExceptionMapperTest" time="0.021"/>
   <testcase name="testUnexpectedExceptionIsMappedTo500" classname="com.fulfilment.application.monolith.common.RestExceptionMapperTest" time="0.002">
-    <system-out><![CDATA[2026-08-05 01:33:56,823 ERROR [com.ful.app.mon.com.RestExceptionMapper] (main) Failed to handle request: java.lang.RuntimeException: Something broke
+    <system-out><![CDATA[2026-08-06 13:17:38,233 ERROR [com.ful.app.mon.com.RestExceptionMapper] (main) Failed to handle request: java.lang.RuntimeException: Something broke
 	at com.fulfilment.application.monolith.common.RestExceptionMapperTest.testUnexpectedExceptionIsMappedTo500(RestExceptionMapperTest.java:29)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)

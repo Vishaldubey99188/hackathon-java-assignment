@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.202" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepositoryTest" time="0.021" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="test.url" value="http://localhost:8081"/>
@@ -81,7 +81,7 @@
     <property name="jacoco-agent.destfile" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/jacoco-quarkus.exec"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="testFilterByLocation" classname="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.04">
+  <testcase name="testRemoveExistingWarehouseDeletesIt" classname="com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepositoryTest" time="0.009">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mdelete&amp#27;[0m 
     &amp#27;[34mfrom&amp#27;[0m
@@ -94,41 +94,17 @@
     &amp#27;[34mvalues&amp#27;[0m
         (?, ?, ?, ?, ?, ?, ?, ?)
 &amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
-        count(*) 
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
     &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-        &amp#27;[34mand&amp#27;[0m dw1_0.location=?
+        warehouse dw1_0
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,
@@ -142,65 +118,39 @@
     &amp#27;[34mfrom&amp#27;[0m
         warehouse dw1_0 
     &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-        &amp#27;[34mand&amp#27;[0m dw1_0.location=? 
-    &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
-        dw1_0.createdAt 
-    &amp#27;[34moffset&amp#27;[0m
-        ? &amp#27;[34mrows&amp#27;[0m 
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34mdelete&amp#27;[0m 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse 
+    &amp#27;[34mwhere&amp#27;[0m
+        id=? 
+        &amp#27;[34mand&amp#27;[0m version=?
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
     &amp#27;[34mfetch&amp#27;[0m
         first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 ]]></system-out>
   </testcase>
-  <testcase name="testMinAndMaxCapacityRange" classname="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.019">
+  <testcase name="testRemoveNonExistentWarehouseThrows" classname="com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepositoryTest" time="0.003">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mdelete&amp#27;[0m 
     &amp#27;[34mfrom&amp#27;[0m
         warehouse dw1_0
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        count(*) 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-        &amp#27;[34mand&amp#27;[0m dw1_0.capacity>=? 
-        &amp#27;[34mand&amp#27;[0m dw1_0.capacity<=?
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,
@@ -214,26 +164,17 @@
     &amp#27;[34mfrom&amp#27;[0m
         warehouse dw1_0 
     &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-        &amp#27;[34mand&amp#27;[0m dw1_0.capacity>=? 
-        &amp#27;[34mand&amp#27;[0m dw1_0.capacity<=? 
-    &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
-        dw1_0.createdAt 
-    &amp#27;[34moffset&amp#27;[0m
-        ? &amp#27;[34mrows&amp#27;[0m 
+        dw1_0.businessUnitCode=? 
     &amp#27;[34mfetch&amp#27;[0m
         first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 ]]></system-out>
   </testcase>
-  <testcase name="testSortByCapacityDescending" classname="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.039">
+  <testcase name="testRemoveDoesNotAffectOtherWarehouses" classname="com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepositoryTest" time="0.006">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mdelete&amp#27;[0m 
     &amp#27;[34mfrom&amp#27;[0m
         warehouse dw1_0
 &amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        &amp#27;[34mnext&amp#27;[0m &amp#27;[34mvalue&amp#27;[0m &amp#27;[34mfor&amp#27;[0m warehouse_SEQ
-&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34minsert&amp#27;[0m 
     &amp#27;[34minto&amp#27;[0m
         warehouse
@@ -247,34 +188,6 @@
         (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
     &amp#27;[34mvalues&amp#27;[0m
         (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        count(*) 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,
@@ -288,62 +201,16 @@
     &amp#27;[34mfrom&amp#27;[0m
         warehouse dw1_0 
     &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-    &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
-        dw1_0.capacity desc 
-    &amp#27;[34moffset&amp#27;[0m
-        ? &amp#27;[34mrows&amp#27;[0m 
+        dw1_0.businessUnitCode=? 
     &amp#27;[34mfetch&amp#27;[0m
         first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-]]></system-out>
-  </testcase>
-  <testcase name="testSearchWithNoFiltersExcludesArchived" classname="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.02">
-    <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
+&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mdelete&amp#27;[0m 
     &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        count(*) 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
+        warehouse 
     &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m
+        id=? 
+        &amp#27;[34mand&amp#27;[0m version=?
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,
@@ -357,133 +224,11 @@
     &amp#27;[34mfrom&amp#27;[0m
         warehouse dw1_0 
     &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-    &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
-        dw1_0.createdAt 
-    &amp#27;[34moffset&amp#27;[0m
-        ? &amp#27;[34mrows&amp#27;[0m 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-]]></system-out>
-  </testcase>
-  <testcase name="testPageSizeAboveMaxIsRejected" classname="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.007">
-    <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mdelete&amp#27;[0m 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-]]></system-out>
-  </testcase>
-  <testcase name="testPagination" classname="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.034">
-    <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mdelete&amp#27;[0m 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        count(*) 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-    &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
-        dw1_0.capacity 
-    &amp#27;[34moffset&amp#27;[0m
-        ? &amp#27;[34mrows&amp#27;[0m 
+        dw1_0.businessUnitCode=? 
     &amp#27;[34mfetch&amp#27;[0m
         first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
-        count(*) 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,
         dw1_0.archivedAt,
         dw1_0.businessUnitCode,
@@ -495,153 +240,7 @@
     &amp#27;[34mfrom&amp#27;[0m
         warehouse dw1_0 
     &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-    &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
-        dw1_0.capacity 
-    &amp#27;[34moffset&amp#27;[0m
-        ? &amp#27;[34mrows&amp#27;[0m 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-]]></system-out>
-  </testcase>
-  <testcase name="testAllParametersAreOptional" classname="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.018">
-    <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mdelete&amp#27;[0m 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        count(*) 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-    &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
-        dw1_0.createdAt 
-    &amp#27;[34moffset&amp#27;[0m
-        ? &amp#27;[34mrows&amp#27;[0m 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-]]></system-out>
-  </testcase>
-  <testcase name="testCombinedLocationAndCapacityFiltersUseAndLogic" classname="com.fulfilment.application.monolith.warehouses.adapters.restapi.WarehouseSearchEndpointTest" time="0.019">
-    <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mdelete&amp#27;[0m 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        count(*) 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-        &amp#27;[34mand&amp#27;[0m dw1_0.location=? 
-        &amp#27;[34mand&amp#27;[0m dw1_0.capacity>=?
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.archivedAt &amp#27;[34mis&amp#27;[0m &amp#27;[34mnull&amp#27;[0m 
-        &amp#27;[34mand&amp#27;[0m dw1_0.location=? 
-        &amp#27;[34mand&amp#27;[0m dw1_0.capacity>=? 
-    &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
-        dw1_0.createdAt 
-    &amp#27;[34moffset&amp#27;[0m
-        ? &amp#27;[34mrows&amp#27;[0m 
+        dw1_0.businessUnitCode=? 
     &amp#27;[34mfetch&amp#27;[0m
         first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 ]]></system-out>

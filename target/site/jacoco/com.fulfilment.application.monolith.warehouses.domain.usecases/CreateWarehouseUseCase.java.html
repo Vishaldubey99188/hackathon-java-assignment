@@ -35,25 +35,37 @@ public class CreateWarehouseUseCase implements CreateWarehouseOperation {
     }
 
     // Validation 3: Capacity validation
-    // - Capacity cannot exceed location's max capacity
-<span class="fc bfc" id="L39" title="All 2 branches covered.">    if (warehouse.capacity &gt; location.maxCapacity()) {</span>
+    // - Capacity must be positive
+<span class="fc bfc" id="L39" title="All 2 branches covered.">    if (warehouse.capacity &lt;= 0) {</span>
 <span class="fc" id="L40">      throw new IllegalArgumentException(</span>
-          &quot;Warehouse capacity (&quot; + warehouse.capacity + 
-<span class="fc" id="L42">          &quot;) exceeds location max capacity (&quot; + location.maxCapacity() + &quot;)&quot;);</span>
+          &quot;Warehouse capacity (&quot; + warehouse.capacity + &quot;) must be greater than zero&quot;);
+    }
+
+    // - Capacity cannot exceed location's max capacity
+<span class="fc bfc" id="L45" title="All 2 branches covered.">    if (warehouse.capacity &gt; location.maxCapacity()) {</span>
+<span class="fc" id="L46">      throw new IllegalArgumentException(</span>
+          &quot;Warehouse capacity (&quot; + warehouse.capacity +
+<span class="fc" id="L48">          &quot;) exceeds location max capacity (&quot; + location.maxCapacity() + &quot;)&quot;);</span>
+    }
+
+    // - Stock cannot be negative
+<span class="fc bfc" id="L52" title="All 2 branches covered.">    if (warehouse.stock &lt; 0) {</span>
+<span class="fc" id="L53">      throw new IllegalArgumentException(</span>
+          &quot;Warehouse stock (&quot; + warehouse.stock + &quot;) must not be negative&quot;);
     }
 
     // - Stock cannot exceed capacity
-<span class="fc bfc" id="L46" title="All 2 branches covered.">    if (warehouse.stock &gt; warehouse.capacity) {</span>
-<span class="fc" id="L47">      throw new IllegalArgumentException(</span>
-          &quot;Warehouse stock (&quot; + warehouse.stock + 
+<span class="fc bfc" id="L58" title="All 2 branches covered.">    if (warehouse.stock &gt; warehouse.capacity) {</span>
+<span class="fc" id="L59">      throw new IllegalArgumentException(</span>
+          &quot;Warehouse stock (&quot; + warehouse.stock +
           &quot;) exceeds warehouse capacity (&quot; + warehouse.capacity + &quot;)&quot;);
     }
 
     // Set creation timestamp
-<span class="fc" id="L53">    warehouse.createdAt = java.time.LocalDateTime.now();</span>
+<span class="fc" id="L65">    warehouse.createdAt = java.time.LocalDateTime.now();</span>
 
     // All validations passed, create the warehouse
-<span class="fc" id="L56">    warehouseStore.create(warehouse);</span>
-<span class="fc" id="L57">  }</span>
+<span class="fc" id="L68">    warehouseStore.create(warehouse);</span>
+<span class="fc" id="L69">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

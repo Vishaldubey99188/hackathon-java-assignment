@@ -35,17 +35,29 @@ public class CreateWarehouseUseCase implements CreateWarehouseOperation {
     }
 
     // Validation 3: Capacity validation
+    // - Capacity must be positive
+    if (warehouse.capacity <= 0) {
+      throw new IllegalArgumentException(
+          "Warehouse capacity (" + warehouse.capacity + ") must be greater than zero");
+    }
+
     // - Capacity cannot exceed location's max capacity
     if (warehouse.capacity > location.maxCapacity()) {
       throw new IllegalArgumentException(
-          "Warehouse capacity (" + warehouse.capacity + 
+          "Warehouse capacity (" + warehouse.capacity +
           ") exceeds location max capacity (" + location.maxCapacity() + ")");
+    }
+
+    // - Stock cannot be negative
+    if (warehouse.stock < 0) {
+      throw new IllegalArgumentException(
+          "Warehouse stock (" + warehouse.stock + ") must not be negative");
     }
 
     // - Stock cannot exceed capacity
     if (warehouse.stock > warehouse.capacity) {
       throw new IllegalArgumentException(
-          "Warehouse stock (" + warehouse.stock + 
+          "Warehouse stock (" + warehouse.stock +
           ") exceeds warehouse capacity (" + warehouse.capacity + ")");
     }
 

@@ -41,11 +41,23 @@ public class ReplaceWarehouseUseCase implements ReplaceWarehouseOperation {
     }
 
     // Validation 4: Capacity validation
+    // - Capacity must be positive
+    if (newWarehouse.capacity <= 0) {
+      throw new IllegalArgumentException(
+          "Warehouse capacity (" + newWarehouse.capacity + ") must be greater than zero");
+    }
+
     // - Capacity cannot exceed location's max capacity
     if (newWarehouse.capacity > location.maxCapacity()) {
       throw new IllegalArgumentException(
           "Warehouse capacity (" + newWarehouse.capacity +
           ") exceeds location max capacity (" + location.maxCapacity() + ")");
+    }
+
+    // - Stock cannot be negative
+    if (newWarehouse.stock < 0) {
+      throw new IllegalArgumentException(
+          "Warehouse stock (" + newWarehouse.stock + ") must not be negative");
     }
 
     // - Stock cannot exceed capacity

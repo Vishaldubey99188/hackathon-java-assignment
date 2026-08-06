@@ -71,7 +71,10 @@ public class WarehouseValidationTest {
         Arguments.of(150, 10, "ZWOLLE-001", "exceeds location max capacity"), // capacity > location max (40)
         Arguments.of(30, 50, "ZWOLLE-001", "exceeds warehouse capacity"),     // stock > capacity
         Arguments.of(200, 10, "AMSTERDAM-001", "exceeds location max capacity"), // capacity > 100
-        Arguments.of(50, 60, "AMSTERDAM-001", "exceeds warehouse capacity")      // stock > capacity
+        Arguments.of(50, 60, "AMSTERDAM-001", "exceeds warehouse capacity"),     // stock > capacity
+        Arguments.of(0, 0, "AMSTERDAM-001", "must be greater than zero"),       // capacity == 0
+        Arguments.of(-10, 0, "AMSTERDAM-001", "must be greater than zero"),     // capacity < 0
+        Arguments.of(20, -5, "AMSTERDAM-001", "must not be negative")           // stock < 0
     );
   }
 

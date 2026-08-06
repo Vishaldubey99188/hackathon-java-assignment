@@ -274,7 +274,13 @@ public class ReplaceWarehouseUseCaseTest {
         new InvalidReplaceScenario("AMSTERDAM-001", 150, 50, "exceeds location max capacity"),
 
         // Stock exceeds capacity
-        new InvalidReplaceScenario("ZWOLLE-001", 30, 40, "exceeds warehouse capacity")
+        new InvalidReplaceScenario("ZWOLLE-001", 30, 40, "exceeds warehouse capacity"),
+
+        // Capacity is zero
+        new InvalidReplaceScenario("AMSTERDAM-001", 0, 0, "must be greater than zero"),
+
+        // Stock is negative
+        new InvalidReplaceScenario("AMSTERDAM-001", 20, -5, "must not be negative")
     );
   }
 

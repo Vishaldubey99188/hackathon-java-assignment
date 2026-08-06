@@ -54,16 +54,22 @@ import java.util.Map;
 <span class="nc" id="L54">  }</span>
 
   @Override
+  @Transactional
   public void remove(Warehouse warehouse) {
-    // TODO Auto-generated method stub
-<span class="nc" id="L59">    throw new UnsupportedOperationException(&quot;Unimplemented method 'remove'&quot;);</span>
-  }
+<span class="nc" id="L59">    DbWarehouse dbWarehouse = find(&quot;businessUnitCode&quot;, warehouse.businessUnitCode).firstResult();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">    if (dbWarehouse == null) {</span>
+<span class="nc" id="L61">      throw new IllegalArgumentException(</span>
+          &quot;Warehouse with business unit code '&quot; + warehouse.businessUnitCode + &quot;' does not exist&quot;);
+    }
+
+<span class="nc" id="L65">    delete(dbWarehouse);</span>
+<span class="nc" id="L66">  }</span>
 
   @Override
   @Transactional
   public Warehouse findByBusinessUnitCode(String buCode) {
-<span class="nc" id="L65">    DbWarehouse dbWarehouse = find(&quot;businessUnitCode&quot;, buCode).firstResult();</span>
-<span class="nc bnc" id="L66" title="All 2 branches missed.">    return dbWarehouse != null ? dbWarehouse.toWarehouse() : null;</span>
+<span class="nc" id="L71">    DbWarehouse dbWarehouse = find(&quot;businessUnitCode&quot;, buCode).firstResult();</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">    return dbWarehouse != null ? dbWarehouse.toWarehouse() : null;</span>
   }
 
   /**
@@ -80,32 +86,32 @@ import java.util.Map;
       int page,
       int pageSize) {
 
-<span class="nc" id="L83">    StringBuilder jpql = new StringBuilder(&quot;archivedAt is null&quot;);</span>
-<span class="nc" id="L84">    Map&lt;String, Object&gt; params = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L89">    StringBuilder jpql = new StringBuilder(&quot;archivedAt is null&quot;);</span>
+<span class="nc" id="L90">    Map&lt;String, Object&gt; params = new HashMap&lt;&gt;();</span>
 
-<span class="nc bnc" id="L86" title="All 4 branches missed.">    if (location != null &amp;&amp; !location.isBlank()) {</span>
-<span class="nc" id="L87">      jpql.append(&quot; and location = :location&quot;);</span>
-<span class="nc" id="L88">      params.put(&quot;location&quot;, location);</span>
+<span class="nc bnc" id="L92" title="All 4 branches missed.">    if (location != null &amp;&amp; !location.isBlank()) {</span>
+<span class="nc" id="L93">      jpql.append(&quot; and location = :location&quot;);</span>
+<span class="nc" id="L94">      params.put(&quot;location&quot;, location);</span>
     }
-<span class="nc bnc" id="L90" title="All 2 branches missed.">    if (minCapacity != null) {</span>
-<span class="nc" id="L91">      jpql.append(&quot; and capacity &gt;= :minCapacity&quot;);</span>
-<span class="nc" id="L92">      params.put(&quot;minCapacity&quot;, minCapacity);</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">    if (minCapacity != null) {</span>
+<span class="nc" id="L97">      jpql.append(&quot; and capacity &gt;= :minCapacity&quot;);</span>
+<span class="nc" id="L98">      params.put(&quot;minCapacity&quot;, minCapacity);</span>
     }
-<span class="nc bnc" id="L94" title="All 2 branches missed.">    if (maxCapacity != null) {</span>
-<span class="nc" id="L95">      jpql.append(&quot; and capacity &lt;= :maxCapacity&quot;);</span>
-<span class="nc" id="L96">      params.put(&quot;maxCapacity&quot;, maxCapacity);</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">    if (maxCapacity != null) {</span>
+<span class="nc" id="L101">      jpql.append(&quot; and capacity &lt;= :maxCapacity&quot;);</span>
+<span class="nc" id="L102">      params.put(&quot;maxCapacity&quot;, maxCapacity);</span>
     }
 
-<span class="nc bnc" id="L99" title="All 2 branches missed.">    String sortField = &quot;capacity&quot;.equalsIgnoreCase(sortBy) ? &quot;capacity&quot; : &quot;createdAt&quot;;</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">    String sortField = &quot;capacity&quot;.equalsIgnoreCase(sortBy) ? &quot;capacity&quot; : &quot;createdAt&quot;;</span>
     Sort.Direction direction =
-<span class="nc bnc" id="L101" title="All 2 branches missed.">        &quot;desc&quot;.equalsIgnoreCase(sortOrder) ? Sort.Direction.Descending : Sort.Direction.Ascending;</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        &quot;desc&quot;.equalsIgnoreCase(sortOrder) ? Sort.Direction.Descending : Sort.Direction.Ascending;</span>
 
-<span class="nc" id="L103">    PanacheQuery&lt;DbWarehouse&gt; query = find(jpql.toString(), Sort.by(sortField, direction), params);</span>
-<span class="nc" id="L104">    long totalElements = query.count();</span>
-<span class="nc" id="L105">    List&lt;Warehouse&gt; items =</span>
-<span class="nc" id="L106">        query.page(Page.of(page, pageSize)).list().stream().map(DbWarehouse::toWarehouse).toList();</span>
+<span class="nc" id="L109">    PanacheQuery&lt;DbWarehouse&gt; query = find(jpql.toString(), Sort.by(sortField, direction), params);</span>
+<span class="nc" id="L110">    long totalElements = query.count();</span>
+<span class="nc" id="L111">    List&lt;Warehouse&gt; items =</span>
+<span class="nc" id="L112">        query.page(Page.of(page, pageSize)).list().stream().map(DbWarehouse::toWarehouse).toList();</span>
 
-<span class="nc" id="L108">    return new WarehouseSearchPage(items, page, pageSize, totalElements);</span>
+<span class="nc" id="L114">    return new WarehouseSearchPage(items, page, pageSize, totalElements);</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

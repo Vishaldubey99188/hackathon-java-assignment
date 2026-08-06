@@ -41,27 +41,39 @@ public class ReplaceWarehouseUseCase implements ReplaceWarehouseOperation {
     }
 
     // Validation 4: Capacity validation
-    // - Capacity cannot exceed location's max capacity
-<span class="fc bfc" id="L45" title="All 2 branches covered.">    if (newWarehouse.capacity &gt; location.maxCapacity()) {</span>
+    // - Capacity must be positive
+<span class="fc bfc" id="L45" title="All 2 branches covered.">    if (newWarehouse.capacity &lt;= 0) {</span>
 <span class="fc" id="L46">      throw new IllegalArgumentException(</span>
+          &quot;Warehouse capacity (&quot; + newWarehouse.capacity + &quot;) must be greater than zero&quot;);
+    }
+
+    // - Capacity cannot exceed location's max capacity
+<span class="fc bfc" id="L51" title="All 2 branches covered.">    if (newWarehouse.capacity &gt; location.maxCapacity()) {</span>
+<span class="fc" id="L52">      throw new IllegalArgumentException(</span>
           &quot;Warehouse capacity (&quot; + newWarehouse.capacity +
-<span class="fc" id="L48">          &quot;) exceeds location max capacity (&quot; + location.maxCapacity() + &quot;)&quot;);</span>
+<span class="fc" id="L54">          &quot;) exceeds location max capacity (&quot; + location.maxCapacity() + &quot;)&quot;);</span>
+    }
+
+    // - Stock cannot be negative
+<span class="fc bfc" id="L58" title="All 2 branches covered.">    if (newWarehouse.stock &lt; 0) {</span>
+<span class="fc" id="L59">      throw new IllegalArgumentException(</span>
+          &quot;Warehouse stock (&quot; + newWarehouse.stock + &quot;) must not be negative&quot;);
     }
 
     // - Stock cannot exceed capacity
-<span class="fc bfc" id="L52" title="All 2 branches covered.">    if (newWarehouse.stock &gt; newWarehouse.capacity) {</span>
-<span class="fc" id="L53">      throw new IllegalArgumentException(</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">    if (newWarehouse.stock &gt; newWarehouse.capacity) {</span>
+<span class="fc" id="L65">      throw new IllegalArgumentException(</span>
           &quot;Warehouse stock (&quot; + newWarehouse.stock +
           &quot;) exceeds warehouse capacity (&quot; + newWarehouse.capacity + &quot;)&quot;);
     }
 
     // Update warehouse fields (preserve createdAt, businessUnitCode, archivedAt)
-<span class="fc" id="L59">    existing.location = newWarehouse.location;</span>
-<span class="fc" id="L60">    existing.capacity = newWarehouse.capacity;</span>
-<span class="fc" id="L61">    existing.stock = newWarehouse.stock;</span>
+<span class="fc" id="L71">    existing.location = newWarehouse.location;</span>
+<span class="fc" id="L72">    existing.capacity = newWarehouse.capacity;</span>
+<span class="fc" id="L73">    existing.stock = newWarehouse.stock;</span>
 
     // Update the warehouse
-<span class="fc" id="L64">    warehouseStore.update(existing);</span>
-<span class="fc" id="L65">  }</span>
+<span class="fc" id="L76">    warehouseStore.update(existing);</span>
+<span class="fc" id="L77">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

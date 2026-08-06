@@ -9,7 +9,7 @@ java-code-assignment,com.fulfilment.application.monolith.products,Product,6,3,0,
 java-code-assignment,com.fulfilment.application.monolith.products,ProductResource,0,134,0,10,0,30,0,12,0,7
 java-code-assignment,com.fulfilment.application.monolith.location,LocationGateway,0,95,0,0,0,15,0,4,0,4
 java-code-assignment,com.fulfilment.application.monolith.warehouses.adapters.database,DbWarehouse,0,33,0,0,0,9,0,2,0,2
-java-code-assignment,com.fulfilment.application.monolith.warehouses.adapters.database,WarehouseRepository,12,188,2,14,2,39,3,12,1,6
+java-code-assignment,com.fulfilment.application.monolith.warehouses.adapters.database,WarehouseRepository,7,214,2,16,1,44,2,14,0,7
 java-code-assignment,com.fulfilment.application.monolith.common,RestExceptionMapper,0,64,1,5,0,14,1,5,0,3
 java-code-assignment,com.fulfilment.application.monolith.stores,StoreResource,0,173,2,16,0,41,2,15,0,8
 java-code-assignment,com.fulfilment.application.monolith.stores,StoreUpdatedEvent,0,9,0,0,0,4,0,2,0,2
@@ -19,5 +19,5 @@ java-code-assignment,com.fulfilment.application.monolith.stores,Store,0,9,0,0,0,
 java-code-assignment,com.fulfilment.application.monolith.stores,StoreEventObserver,0,32,0,0,0,8,0,4,0,4
 java-code-assignment,com.fulfilment.application.monolith.warehouses.adapters.restapi,WarehouseResourceImpl,4,291,5,17,0,63,5,15,0,9
 java-code-assignment,com.fulfilment.application.monolith.warehouses.domain.usecases,ArchiveWarehouseUseCase,0,39,0,4,0,11,0,4,0,2
-java-code-assignment,com.fulfilment.application.monolith.warehouses.domain.usecases,CreateWarehouseUseCase,0,78,0,8,0,18,0,6,0,2
-java-code-assignment,com.fulfilment.application.monolith.warehouses.domain.usecases,ReplaceWarehouseUseCase,0,97,0,10,0,22,0,7,0,2
+java-code-assignment,com.fulfilment.application.monolith.warehouses.domain.usecases,CreateWarehouseUseCase,0,100,0,12,0,22,0,8,0,2
+java-code-assignment,com.fulfilment.application.monolith.warehouses.domain.usecases,ReplaceWarehouseUseCase,0,119,0,14,0,26,0,9,0,2

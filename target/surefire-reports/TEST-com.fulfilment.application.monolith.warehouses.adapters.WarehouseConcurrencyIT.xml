@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT" time="0.1" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT" time="0.109" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="test.url" value="http://localhost:8081"/>
@@ -19,7 +19,7 @@
     <property name="groovy.use.classvalue" value="false"/>
     <property name="mp.openapi.extensions.smallrye.defaultProduces" value="application/json"/>
     <property name="sun.boot.library.path" value="/Users/vishaldubey/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260805013349188_3.jar /Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire 2026-08-05T01-33-49_150-jvmRun1 surefire-20260805013349188_1tmp surefire_0-20260805013349188_2tmp"/>
+    <property name="sun.java.command" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260806131730897_3.jar /Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire 2026-08-06T13-17-30_861-jvmRun1 surefire-20260806131730897_1tmp surefire_0-20260806131730897_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/Users/vishaldubey/.m2/wrapper/dists/apache-maven-3.8.6-bin/67568434/apache-maven-3.8.6"/>
@@ -42,7 +42,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260805013349188_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260806131730897_3.jar"/>
     <property name="mp.openapi.extensions.smallrye.defaultStreamingConsumes" value="application/octet-stream"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
@@ -75,142 +75,14 @@
     <property name="vertx.disableTCCL" value="true"/>
     <property name="java.vm.version" value="20.0.2+9-78"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="51:b0:8b:d8:39:94:94:72"/>
+    <property name="io.netty.machineId" value="8f:66:df:5d:88:de:25:b7"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="64.0"/>
     <property name="jacoco-agent.destfile" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/jacoco-quarkus.exec"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="testConcurrentWarehouseCreationWithUniqueCodesSucceeds" classname="com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT" time="0.083">
+  <testcase name="testConcurrentWarehouseCreationWithUniqueCodesSucceeds" classname="com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT" time="0.088">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,
         dw1_0.archivedAt,
@@ -246,12 +118,122 @@
     &amp#27;[34mselect&amp#27;[0m
         &amp#27;[34mnext&amp#27;[0m &amp#27;[34mvalue&amp#27;[0m &amp#27;[34mfor&amp#27;[0m warehouse_SEQ
 &amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
+&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34minsert&amp#27;[0m 
     &amp#27;[34minto&amp#27;[0m
         warehouse
         (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
     &amp#27;[34mvalues&amp#27;[0m
         (?, ?, ?, ?, ?, ?, ?, ?)
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34minsert&amp#27;[0m 
+    &amp#27;[34minto&amp#27;[0m
+        warehouse
+        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
+    &amp#27;[34mvalues&amp#27;[0m
+        (?, ?, ?, ?, ?, ?, ?, ?)
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34minsert&amp#27;[0m 
+    &amp#27;[34minto&amp#27;[0m
+        warehouse
+        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
+    &amp#27;[34mvalues&amp#27;[0m
+        (?, ?, ?, ?, ?, ?, ?, ?)
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
+&amp#27;[35m[Hibernate]&amp#27;[0m 
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34minsert&amp#27;[0m 
     &amp#27;[34minto&amp#27;[0m
@@ -288,19 +270,37 @@
     &amp#27;[34mvalues&amp#27;[0m
         (?, ?, ?, ?, ?, ?, ?, ?)
 &amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 &amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34minsert&amp#27;[0m 
     &amp#27;[34minto&amp#27;[0m
@@ -317,7 +317,7 @@
         (?, ?, ?, ?, ?, ?, ?, ?)
 ]]></system-out>
   </testcase>
-  <testcase name="testConcurrentWarehouseCreationWithDuplicateCodeFails" classname="com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT" time="0.004">
+  <testcase name="testConcurrentWarehouseCreationWithDuplicateCodeFails" classname="com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT" time="0.005">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,
@@ -351,37 +351,12 @@
     &amp#27;[34mfetch&amp#27;[0m
         first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 &amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
-&amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34mselect&amp#27;[0m
-        dw1_0.id,
-        dw1_0.archivedAt,
-        dw1_0.businessUnitCode,
-        dw1_0.capacity,
-        dw1_0.createdAt,
-        dw1_0.location,
-        dw1_0.stock,
-        dw1_0.version 
-    &amp#27;[34mfrom&amp#27;[0m
-        warehouse dw1_0 
-    &amp#27;[34mwhere&amp#27;[0m
-        dw1_0.businessUnitCode=? 
-    &amp#27;[34mfetch&amp#27;[0m
-        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
+    &amp#27;[34minsert&amp#27;[0m 
+    &amp#27;[34minto&amp#27;[0m
+        warehouse
+        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
+    &amp#27;[34mvalues&amp#27;[0m
+        (?, ?, ?, ?, ?, ?, ?, ?)
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,
@@ -406,12 +381,21 @@
     &amp#27;[34mvalues&amp#27;[0m
         (?, ?, ?, ?, ?, ?, ?, ?)
 &amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34minsert&amp#27;[0m 
     &amp#27;[34minto&amp#27;[0m
@@ -420,21 +404,21 @@
     &amp#27;[34mvalues&amp#27;[0m
         (?, ?, ?, ?, ?, ?, ?, ?)
 &amp#27;[35m[Hibernate]&amp#27;[0m 
-    &amp#27;[34minsert&amp#27;[0m 
-    &amp#27;[34minto&amp#27;[0m
-        warehouse
-        (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
-    &amp#27;[34mvalues&amp#27;[0m
-        (?, ?, ?, ?, ?, ?, ?, ?)
-2026-08-05 01:33:59,857 WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-3) SQL Error: 23505, SQLState: 23505
-2026-08-05 01:33:59,857 ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-3) Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
-insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
-2026-08-05 01:33:59,857 WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-4) SQL Error: 23505, SQLState: 23505
-2026-08-05 01:33:59,858 WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-2) SQL Error: 23505, SQLState: 23505
-2026-08-05 01:33:59,858 ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-4) Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
-insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
-2026-08-05 01:33:59,858 ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-2) Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
-insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
+    &amp#27;[34mselect&amp#27;[0m
+        dw1_0.id,
+        dw1_0.archivedAt,
+        dw1_0.businessUnitCode,
+        dw1_0.capacity,
+        dw1_0.createdAt,
+        dw1_0.location,
+        dw1_0.stock,
+        dw1_0.version 
+    &amp#27;[34mfrom&amp#27;[0m
+        warehouse dw1_0 
+    &amp#27;[34mwhere&amp#27;[0m
+        dw1_0.businessUnitCode=? 
+    &amp#27;[34mfetch&amp#27;[0m
+        first ? &amp#27;[34mrows&amp#27;[0m &amp#27;[34monly&amp#27;[0m
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34minsert&amp#27;[0m 
     &amp#27;[34minto&amp#27;[0m
@@ -442,7 +426,13 @@ insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,s
         (archivedAt, businessUnitCode, capacity, createdAt, location, stock, version, id) 
     &amp#27;[34mvalues&amp#27;[0m
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-08-05 01:33:59,858 WARN  [com.arj.ats.arjuna] (pool-9-thread-3) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffff7f000001:dfca:6a7245ac:121, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@7d3fa76d >: org.hibernate.exception.ConstraintViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
+2026-08-06 13:17:41,328 WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-3) SQL Error: 23505, SQLState: 23505
+2026-08-06 13:17:41,328 WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-4) SQL Error: 23505, SQLState: 23505
+2026-08-06 13:17:41,328 ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-4) Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
+insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
+2026-08-06 13:17:41,328 ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-3) Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
+insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
+2026-08-06 13:17:41,328 WARN  [com.arj.ats.arjuna] (pool-9-thread-4) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffff7f000001:e8af:6a743c1a:12c, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@42270049 >: org.hibernate.exception.ConstraintViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
 insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]] [insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?)]
 	at org.hibernate.dialect.H2Dialect.lambda$buildSQLExceptionConversionDelegate$3(H2Dialect.java:746)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
@@ -487,14 +477,14 @@ insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,s
 	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
 	at com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository_Subclass.create(Unknown Source)
 	at com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository_ClientProxy.create(Unknown Source)
-	at com.fulfilment.application.monolith.warehouses.domain.usecases.CreateWarehouseUseCase.create(CreateWarehouseUseCase.java:56)
+	at com.fulfilment.application.monolith.warehouses.domain.usecases.CreateWarehouseUseCase.create(CreateWarehouseUseCase.java:68)
 	at com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT.lambda$testConcurrentWarehouseCreationWithDuplicateCodeFails$2(WarehouseConcurrencyIT.java:121)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
 insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:520)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
@@ -515,7 +505,10 @@ insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,s
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
 	... 46 more
 
-2026-08-05 01:33:59,858 WARN  [com.arj.ats.arjuna] (pool-9-thread-2) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffff7f000001:dfca:6a7245ac:127, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@2e0a3df4 >: org.hibernate.exception.ConstraintViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
+2026-08-06 13:17:41,329 WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-1) SQL Error: 23505, SQLState: 23505
+2026-08-06 13:17:41,329 ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-1) Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
+insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
+2026-08-06 13:17:41,329 WARN  [com.arj.ats.arjuna] (pool-9-thread-1) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffff7f000001:e8af:6a743c1a:114, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@6f54d5f >: org.hibernate.exception.ConstraintViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
 insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]] [insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?)]
 	at org.hibernate.dialect.H2Dialect.lambda$buildSQLExceptionConversionDelegate$3(H2Dialect.java:746)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
@@ -560,14 +553,14 @@ insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,s
 	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
 	at com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository_Subclass.create(Unknown Source)
 	at com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository_ClientProxy.create(Unknown Source)
-	at com.fulfilment.application.monolith.warehouses.domain.usecases.CreateWarehouseUseCase.create(CreateWarehouseUseCase.java:56)
+	at com.fulfilment.application.monolith.warehouses.domain.usecases.CreateWarehouseUseCase.create(CreateWarehouseUseCase.java:68)
 	at com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT.lambda$testConcurrentWarehouseCreationWithDuplicateCodeFails$2(WarehouseConcurrencyIT.java:121)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
 insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:520)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
@@ -588,7 +581,7 @@ insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,s
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
 	... 46 more
 
-2026-08-05 01:33:59,858 WARN  [com.arj.ats.arjuna] (pool-9-thread-4) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffff7f000001:dfca:6a7245ac:128, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@6577e84b >: org.hibernate.exception.ConstraintViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
+2026-08-06 13:17:41,329 WARN  [com.arj.ats.arjuna] (pool-9-thread-3) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffff7f000001:e8af:6a743c1a:11f, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@6eac509c >: org.hibernate.exception.ConstraintViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
 insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]] [insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?)]
 	at org.hibernate.dialect.H2Dialect.lambda$buildSQLExceptionConversionDelegate$3(H2Dialect.java:746)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
@@ -633,90 +626,14 @@ insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,s
 	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
 	at com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository_Subclass.create(Unknown Source)
 	at com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository_ClientProxy.create(Unknown Source)
-	at com.fulfilment.application.monolith.warehouses.domain.usecases.CreateWarehouseUseCase.create(CreateWarehouseUseCase.java:56)
+	at com.fulfilment.application.monolith.warehouses.domain.usecases.CreateWarehouseUseCase.create(CreateWarehouseUseCase.java:68)
 	at com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT.lambda$testConcurrentWarehouseCreationWithDuplicateCodeFails$2(WarehouseConcurrencyIT.java:121)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
-insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:520)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.index.Index.getDuplicateKeyException(Index.java:527)
-	at org.h2.mvstore.db.MVSecondaryIndex.checkUnique(MVSecondaryIndex.java:223)
-	at org.h2.mvstore.db.MVSecondaryIndex.add(MVSecondaryIndex.java:184)
-	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:519)
-	at org.h2.command.dml.Insert.insertRows(Insert.java:174)
-	at org.h2.command.dml.Insert.update(Insert.java:135)
-	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
-	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
-	at org.h2.command.Command.executeUpdate(Command.java:256)
-	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:216)
-	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:174)
-	at io.agroal.pool.wrapper.PreparedStatementWrapper.executeUpdate(PreparedStatementWrapper.java:90)
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
-	... 46 more
-
-2026-08-05 01:33:59,858 WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-5) SQL Error: 23505, SQLState: 23505
-2026-08-05 01:33:59,858 ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (pool-9-thread-5) Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
-insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
-2026-08-05 01:33:59,859 WARN  [com.arj.ats.arjuna] (pool-9-thread-5) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffff7f000001:dfca:6a7245ac:136, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@de15b23 >: org.hibernate.exception.ConstraintViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
-insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]] [insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?)]
-	at org.hibernate.dialect.H2Dialect.lambda$buildSQLExceptionConversionDelegate$3(H2Dialect.java:746)
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
-	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:134)
-	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:55)
-	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:194)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:132)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:104)
-	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:110)
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632)
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499)
-	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:371)
-	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41)
-	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
-	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425)
-	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:487)
-	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2324)
-	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1981)
-	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
-	at org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorImpl.beforeCompletion(JtaTransactionCoordinatorImpl.java:336)
-	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.SynchronizationCallbackCoordinatorNonTrackingImpl.beforeCompletion(SynchronizationCallbackCoordinatorNonTrackingImpl.java:47)
-	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization.beforeCompletion(RegisteredSynchronization.java:37)
-	at com.arjuna.ats.internal.jta.resources.arjunacore.SynchronizationImple.beforeCompletion(SynchronizationImple.java:52)
-	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.beforeCompletion(TwoPhaseCoordinator.java:348)
-	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.end(TwoPhaseCoordinator.java:66)
-	at com.arjuna.ats.arjuna.AtomicAction.commit(AtomicAction.java:135)
-	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1290)
-	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
-	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:406)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:175)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:107)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:38)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:61)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:32)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
-	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
-	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
-	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
-	at com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository_Subclass.create(Unknown Source)
-	at com.fulfilment.application.monolith.warehouses.adapters.database.WarehouseRepository_ClientProxy.create(Unknown Source)
-	at com.fulfilment.application.monolith.warehouses.domain.usecases.CreateWarehouseUseCase.create(CreateWarehouseUseCase.java:56)
-	at com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT.lambda$testConcurrentWarehouseCreationWithDuplicateCodeFails$2(WarehouseConcurrencyIT.java:121)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1785873839855' )"; SQL statement:
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_2 ON PUBLIC.WAREHOUSE(BUSINESSUNITCODE NULLS FIRST) VALUES ( /* 14 */ 'DUPLICATE-CODE-1786002461325' )"; SQL statement:
 insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,stock,version,id) values (?,?,?,?,?,?,?,?) [23505-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:520)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
@@ -739,7 +656,7 @@ insert into warehouse (archivedAt,businessUnitCode,capacity,createdAt,location,s
 
 ]]></system-out>
   </testcase>
-  <testcase name="testConcurrentReadsAreNonBlocking" classname="com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT" time="0.008">
+  <testcase name="testConcurrentReadsAreNonBlocking" classname="com.fulfilment.application.monolith.warehouses.adapters.WarehouseConcurrencyIT" time="0.01">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         dw1_0.id,

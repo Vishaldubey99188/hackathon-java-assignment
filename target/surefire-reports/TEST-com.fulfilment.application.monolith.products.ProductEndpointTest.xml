@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.44" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.471" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="test.url" value="http://localhost:8081"/>
@@ -19,7 +19,7 @@
     <property name="groovy.use.classvalue" value="false"/>
     <property name="mp.openapi.extensions.smallrye.defaultProduces" value="application/json"/>
     <property name="sun.boot.library.path" value="/Users/vishaldubey/Library/Java/JavaVirtualMachines/openjdk-20.0.2/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260805013349188_3.jar /Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire 2026-08-05T01-33-49_150-jvmRun1 surefire-20260805013349188_1tmp surefire_0-20260805013349188_2tmp"/>
+    <property name="sun.java.command" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260806131730897_3.jar /Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire 2026-08-06T13-17-30_861-jvmRun1 surefire-20260806131730897_1tmp surefire_0-20260806131730897_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/Users/vishaldubey/.m2/wrapper/dists/apache-maven-3.8.6-bin/67568434/apache-maven-3.8.6"/>
@@ -42,7 +42,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260805013349188_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/surefire/surefirebooter-20260806131730897_3.jar"/>
     <property name="mp.openapi.extensions.smallrye.defaultStreamingConsumes" value="application/octet-stream"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
@@ -75,14 +75,14 @@
     <property name="vertx.disableTCCL" value="true"/>
     <property name="java.vm.version" value="20.0.2+9-78"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="51:b0:8b:d8:39:94:94:72"/>
+    <property name="io.netty.machineId" value="8f:66:df:5d:88:de:25:b7"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="64.0"/>
     <property name="jacoco-agent.destfile" value="/Users/vishaldubey/Downloads/project/hackathon-java-assignment/target/jacoco-quarkus.exec"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="testCreateProductWithIdSetReturns422" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.07"/>
-  <testcase name="testDeleteProductNotFoundReturns404" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.104">
+  <testcase name="testCreateProductWithIdSetReturns422" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.083"/>
+  <testcase name="testDeleteProductNotFoundReturns404" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.106">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         p1_0.id,
@@ -96,11 +96,11 @@
         p1_0.id=?
 ]]></system-out>
   </testcase>
-  <testcase name="testUpdateProductSuccess" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.073">
+  <testcase name="testUpdateProductSuccess" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.075">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         &amp#27;[34mnext&amp#27;[0m &amp#27;[34mvalue&amp#27;[0m &amp#27;[34mfor&amp#27;[0m Product_SEQ
-2026-08-05 01:33:57,020 INFO  [com.ful.app.mon.pro.ProductResource] (executor-thread-1) Created product id=4 name=UPDATE-PRODUCT-BEFORE
+2026-08-06 13:17:38,448 INFO  [com.ful.app.mon.pro.ProductResource] (executor-thread-1) Created product id=4 name=UPDATE-PRODUCT-BEFORE
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34minsert&amp#27;[0m 
     &amp#27;[34minto&amp#27;[0m
@@ -108,7 +108,7 @@
         (description, name, price, stock, id) 
     &amp#27;[34mvalues&amp#27;[0m
         (?, ?, ?, ?, ?)
-2026-08-05 01:33:57,058 INFO  [com.ful.app.mon.pro.ProductResource] (executor-thread-1) Updated product id=4
+2026-08-06 13:17:38,487 INFO  [com.ful.app.mon.pro.ProductResource] (executor-thread-1) Updated product id=4
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mupdate&amp#27;[0m
         Product 
@@ -121,7 +121,7 @@
         id=?
 ]]></system-out>
   </testcase>
-  <testcase name="testCrudProduct" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.153">
+  <testcase name="testCrudProduct" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.165">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         p1_0.id,
@@ -133,7 +133,7 @@
         Product p1_0 
     &amp#27;[34morder&amp#27;[0m &amp#27;[34mby&amp#27;[0m
         p1_0.name
-2026-08-05 01:33:57,220 INFO  [com.ful.app.mon.pro.ProductResource] (executor-thread-1) Deleted product id=1
+2026-08-06 13:17:38,660 INFO  [com.ful.app.mon.pro.ProductResource] (executor-thread-1) Deleted product id=1
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mdelete&amp#27;[0m 
     &amp#27;[34mfrom&amp#27;[0m
@@ -153,7 +153,7 @@
         p1_0.name
 ]]></system-out>
   </testcase>
-  <testcase name="testUpdateProductNotFoundReturns404" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.008">
+  <testcase name="testUpdateProductNotFoundReturns404" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.007">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         p1_0.id,
@@ -168,7 +168,7 @@
 ]]></system-out>
   </testcase>
   <testcase name="testGetSingleProductSuccess" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.017">
-    <system-out><![CDATA[2026-08-05 01:33:57,243 INFO  [com.ful.app.mon.pro.ProductResource] (executor-thread-1) Created product id=5 name=GET-SINGLE-PRODUCT
+    <system-out><![CDATA[2026-08-06 13:17:38,683 INFO  [com.ful.app.mon.pro.ProductResource] (executor-thread-1) Created product id=5 name=GET-SINGLE-PRODUCT
 &amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34minsert&amp#27;[0m 
     &amp#27;[34minto&amp#27;[0m
@@ -178,7 +178,7 @@
         (?, ?, ?, ?, ?)
 ]]></system-out>
   </testcase>
-  <testcase name="testGetSingleProductNotFound" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.004">
+  <testcase name="testGetSingleProductNotFound" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.006">
     <system-out><![CDATA[&amp#27;[35m[Hibernate]&amp#27;[0m 
     &amp#27;[34mselect&amp#27;[0m
         p1_0.id,
@@ -192,5 +192,5 @@
         p1_0.id=?
 ]]></system-out>
   </testcase>
-  <testcase name="testUpdateProductMissingNameReturns422" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.006"/>
+  <testcase name="testUpdateProductMissingNameReturns422" classname="com.fulfilment.application.monolith.products.ProductEndpointTest" time="0.005"/>
 </testsuite>
